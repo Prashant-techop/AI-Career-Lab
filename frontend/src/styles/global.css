@@ -1,0 +1,90 @@
+/* Global Styles and CSS Variables */
+:root {
+    color-scheme: light;
+    --bg: #f3f1ea;
+    --bg-alt: rgba(255, 255, 255, 0.62);
+    --panel: rgba(255, 255, 255, 0.78);
+    --panel-strong: #ffffff;
+    --text: #171717;
+    --muted: #5f625c;
+    --brand: #1d4ed8;
+    --brand-soft: #dbeafe;
+    --accent: #0f766e;
+    --accent-soft: rgba(15, 118, 110, 0.1);
+    --border: rgba(23, 23, 23, 0.08);
+    --shadow: 0 20px 60px rgba(28, 34, 45, 0.08);
+    --shadow-soft: 0 10px 26px rgba(28, 34, 45, 0.06);
+    --btn-primary-bg: #1f2937;
+    --btn-primary-text: #ffffff;
+    --btn-primary-border: #111827;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #101114;
+    --bg-alt: rgba(18, 21, 27, 0.72);
+    --panel: rgba(19, 22, 28, 0.84);
+    --panel-strong: #151922;
+    --text: #f3f4f6;
+    --muted: #a2a8b3;
+    --brand: #8ab4ff;
+    --brand-soft: rgba(138, 180, 255, 0.14);
+    --accent: #8dd3c7;
+    --accent-soft: rgba(141, 211, 199, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
+    --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.24);
+    --btn-primary-bg: #8ab4ff;
+    --btn-primary-text: #0b1220;
+    --btn-primary-border: #9ec1ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 12% 14%, rgba(29, 78, 216, 0.12), transparent 32%),
+        radial-gradient(circle at 88% 8%, rgba(15, 118, 110, 0.1), transparent 24%),
+        linear-gradient(180deg, #f7f4ee 0%, #f3f1ea 44%, #efede5 100%);
+    min-height: 100vh;
+    position: relative;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+:root[data-theme="dark"] body {
+    background:
+        radial-gradient(circle at 14% 16%, rgba(138, 180, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 82% 10%, rgba(141, 211, 199, 0.1), transparent 24%),
+        linear-gradient(180deg, #0d0f13 0%, #101114 50%, #12151b 100%);
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+h2, h3 {
+    margin: 0.35rem 0 0.7rem;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input, button, textarea {
+    font-family: inherit;
+}

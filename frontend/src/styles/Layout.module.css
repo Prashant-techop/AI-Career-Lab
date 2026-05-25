@@ -1,0 +1,237 @@
+/* Background effects */
+.bg-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+        linear-gradient(rgba(23, 23, 23, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 23, 23, 0.03) 1px, transparent 1px);
+    background-size: 36px 36px;
+}
+
+:root[data-theme="dark"] .bg-mesh {
+    opacity: 0.32;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-orb {
+    position: fixed;
+    z-index: -1;
+    filter: blur(54px);
+    opacity: 0.28;
+    pointer-events: none;
+}
+
+.orb-left {
+    width: 320px;
+    height: 320px;
+    left: -120px;
+    top: 96px;
+    background: rgba(29, 78, 216, 0.42);
+}
+
+.orb-right {
+    width: 380px;
+    height: 380px;
+    right: -160px;
+    top: 240px;
+    background: rgba(15, 118, 110, 0.34);
+}
+
+:root[data-theme="dark"] .orb-left {
+    background: rgba(138, 180, 255, 0.32);
+}
+
+:root[data-theme="dark"] .orb-right {
+    background: rgba(141, 211, 199, 0.22);
+}
+
+/* Shell utility */
+.shell {
+    width: min(1100px, calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(18px);
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+}
+
+.site-header .shell {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.brand-mark {
+    width: 2.6rem;
+    height: 2.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.9rem;
+    background: var(--panel-strong);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-copy strong,
+.brand-copy small {
+    display: block;
+}
+
+.brand-copy strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+}
+
+.brand-copy small {
+    color: var(--muted);
+    font-size: 0.76rem;
+}
+
+/* Navigation */
+.site-nav {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.94rem;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--text);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    padding: 0.28rem;
+    border-radius: 999px;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.theme-toggle:hover {
+    box-shadow: var(--shadow);
+}
+
+.theme-toggle-track {
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    width: 108px;
+    gap: 0.2rem;
+}
+
+.theme-toggle-track::before {
+    content: "";
+    position: absolute;
+    inset: 3px auto 3px 3px;
+    width: calc(50% - 3px);
+    border-radius: 999px;
+    background: var(--panel-strong);
+    border: 1px solid var(--border);
+    transition: transform 0.22s ease;
+}
+
+:root[data-theme="dark"] .theme-toggle-track::before {
+    transform: translateX(100%);
+}
+
+.theme-toggle-label {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.44rem 0.2rem;
+}
+
+/* Page content */
+.page-content {
+    padding: 2.2rem 0 2.4rem;
+    flex: 1;
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+}
+
+.site-footer .shell {
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.site-footer p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.84rem;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+    .site-header .shell {
+        min-height: auto;
+        padding: 0.9rem 0;
+        flex-wrap: wrap;
+    }
+
+    .site-nav {
+        gap: 0.65rem;
+        margin-left: 0;
+    }
+
+    .theme-toggle {
+        width: 100%;
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .theme-toggle-track {
+        width: 100%;
+    }
+}
